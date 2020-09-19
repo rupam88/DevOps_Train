@@ -16,3 +16,33 @@ sudo ufw allow 8080
 sudo ufw status
 sudo ufw enable
 sudo ufw status
+
+********Tomcat Installation*****************
+sudo apt install unzip wget
+cd /tmp
+wget https://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.58/bin/apache-tomcat-8.5.58.zip
+unzip apache-tomcat-*.zip
+sudo mkdir -p /opt/tomcat
+sudo mv apache-tomcat-8.5.47 /opt/tomcat/
+
+change server port number
+/opt/tomcat/apache-tomcat-8.5.47/conf/server.xml
+change permission
+cd /opt/tomcat/apache-tomcat-8.5.47/bin
+ls -la
+sudo chmod +x *
+
+/opt/tomcat/apache-tomcat-8.5.47/bin/startup.sh
+
+update tomcat-users.xml file.
+
+//roles : manager-script & admin-gui
+
+//Set password : tomcat
+
+//Restart the tomcat server
+
+/opt/tomcat/apache-tomcat-8.5.47/bin/shutdown.sh
+/opt/tomcat/apache-tomcat-8.5.47/bin/startup.sh
+
+Last step go to /webapps/manager/META-INF and comment valve line in the bottom
